@@ -510,19 +510,6 @@ EditVideo Wrapper ---< Videos # One to Many(Foreign Key) 🚧 (deprecated)
 | created_at | DateTime | Creation timestamp |
 
 
-### CSRF Protection
-- Uses Django's built-in CSRF middleware
-- CSRF token required for all POST, PUT, DELETE requests
-- Configured trusted domains in `CSRF_TRUSTED_ORIGINS`
-- CSRF token delivered via cookies
-- Implementation example:
-```python
-CSRF_TRUSTED_ORIGINS = [
-    "https://your-frontend-domain.com",
-    "http://localhost:3000"
-]
-```
-
 
 ## 5. Security
 
@@ -538,6 +525,19 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
 CORS_ALLOW_CREDENTIALS = True
+```
+
+### CSRF Protection
+- Uses Django's built-in CSRF middleware
+- CSRF token required for all POST, PUT, DELETE requests
+- Configured trusted domains in `CSRF_TRUSTED_ORIGINS`
+- CSRF token delivered via cookies
+- Implementation example:
+```python
+CSRF_TRUSTED_ORIGINS = [
+    "https://your-frontend-domain.com",
+    "http://localhost:3000"
+]
 ```
 
 ### Session Authentication
