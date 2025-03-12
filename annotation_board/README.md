@@ -1,4 +1,9 @@
 # EVA Project Documentation
+
+### Website
+- [EVA](https://eva.talkingobjectsarchive.org/)
+- [Annotation Board](https://board.talkingobjectsarchive.org/)
+- [Annotation Board Admin](https://admin.talkingobjectsarchive.org/admin/)
 ### Code 
 - [Annotation_Board & Annotation_Board_Server](https://github.com/talking-objects/annotation_board)
 - [EVA](https://github.com/talking-objects/archive/tree/main/frontend/frontend-nextjs)
@@ -7,7 +12,6 @@
 #### 1. Frontend
 - [Annotation Board](#annotation-board)
 - [EVA Client](#eva-client) 
-- [Proxy](#proxy)
 - [Data Fetching](#data-fetching)
 
 #### 2. Backend
@@ -67,30 +71,6 @@
   - Tailwind CSS for styling
   - React Query for state management
   - Axios for API communication
-
-### Proxy
-- When the frontend needs to access the backend through a proxy server in production environment, you need to configure the proxy settings as follows:
-```js
-const instance = axios.create({
-    baseURL: process.env.NODE_ENV === 'development' 
-    ? "http://127.0.0.1:8000/api/v1/"
-    : process.env.EVA_API_URL,
-    ...(process.env.NODE_ENV === 'production' && {
-        proxy: {
-            host: process.env.PROXY_HOST,
-            port: process.env.PROXY_PORT,
-            protocol: process.env.PROXY_PROTOCOL
-        }
-    }),
-    withCredentials: true
-})
-```
-
-This configuration:
-- In development: Directly connects to the local backend server
-- In production: Routes requests through a proxy server specified by environment variables
-- The proxy settings are only applied in production environment
-- `withCredentials: true` ensures cookies and authentication headers are included in requests
 
 ### Data Fetching
 ```shell
@@ -528,7 +508,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://your-frontend-domain.com",
     "http://localhost:3000"
 ]
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True  # Allow credentials
 ```
 
 ### CSRF Protection
@@ -542,6 +522,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://your-frontend-domain.com",
     "http://localhost:3000"
 ]
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = DEBUG == True
 ```
 
 ### Session Authentication
@@ -553,7 +535,7 @@ CSRF_TRUSTED_ORIGINS = [
 ```python
 SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
 SESSION_COOKIE_SECURE = True  # HTTPS only
-SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = False
 ```
 
 ## 6. Deployment
