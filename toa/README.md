@@ -121,11 +121,40 @@ export const DynamicInfoPageChildrenData = ({currentLanguage, slug}) => {
 - `error`: Error state
 - `isLoading`: Loading state
 
-### Usage Notes
-- Uses environment variables for API configuration
-- Implements basic authentication
-- Includes caching control with `no-store`
-- Supports multilingual content through `X-Language` header
+#### 4. Performance Optimizations
+
+##### Image Optimization
+- Next.js Image component with Sharp
+  ```javascript
+  // Example of optimized image usage
+  import Image from 'next/image'
+  
+  <Image
+    src="/path/to/image.jpg"
+    width={800}
+    height={600}
+    alt="Optimized image"
+    quality={75}
+    placeholder="blur"
+  />
+  ```
+- Features:
+  - Automatic WebP/AVIF conversion
+  - Responsive sizes
+  - Lazy loading
+  - Blur placeholder support
+  - Quality optimization
+
+##### Additional Optimizations
+- Code splitting and lazy loading
+  - Dynamic imports for components
+  - Route-based code splitting
+- Cache management strategies
+  - SWR caching
+  - Static page generation
+- Performance monitoring
+  - Lighthouse metrics
+  - Core Web Vitals tracking
 
 # 2. Backend
 
@@ -209,17 +238,79 @@ if ($allowedOrigin) {
 - Custom Headers: Content-Type, Authorization, x-language
 - Credentials: Enabled for authenticated requests
 
-### Usage Notes
-1. **Development Setup**
-   - Local development supported via `localhost:3000`
-   - Staging environment configured for testing
+### Custom Plugins
 
-2. **Security Considerations**
-   - Strict origin checking
-   - Blocked requests from unauthorized origins
-   - Proper preflight request handling
+#### 1. Category Management Plugin
+Handles dynamic category extraction and management.
 
-3. **Headers Configuration**
-   - CORS headers set only for allowed origins
-   - Essential headers for API functionality
-   - Support for multilingual content
+```php
+Kirby::plugin('custom/method', [
+    'pageMethods' => [
+        'pluckCategoryNames' => function () {
+            // Extracts unique category names
+        },
+        'pluckCategoryBoxes' => function () {
+            // Extracts unique category tags
+        }
+    ]
+]);
+```
+
+**Key Features:**
+- `pluckCategoryNames`: Extracts unique category names from dynamic categories
+- `pluckCategoryBoxes`: Extracts and flattens category tags from all pages
+- Handles nested structure data
+- Removes duplicates automatically
+
+**Usage Example:**
+```php
+// In templates or controllers
+$page->pluckCategoryNames();  // Returns array of unique category names
+$page->pluckCategoryBoxes();  // Returns array of unique category tags
+```
+
+#### 2. Glossary Validation Plugin
+Ensures data integrity for glossary entries.
+
+```php
+Kirby::plugin('custom/glossary-validation', [
+    'hooks' => [
+        'page.update:before' => function ($page, $values, $strings) {
+            // Validates glossary entries
+        }
+    ]
+]);
+```
+
+**Features:**
+- Prevents duplicate glossary terms
+- Case-insensitive validation
+- YAML data structure support
+- Automatic whitespace trimming
+
+**Validation Rules:**
+1. Checks for empty/null values
+2. Converts YAML to array if needed
+3. Case-insensitive duplicate checking
+4. Whitespace normalization
+
+**Error Handling:**
+```php
+throw new Exception('The term "' . $wordName . '" already exists...');
+```
+
+#### Implementation Notes
+1. **Data Structure**
+   - Uses Kirby's structure field type
+   - Supports nested data
+   - Handles multiple languages
+
+2. **Performance**
+   - Efficient array operations
+   - Minimal database queries
+   - Optimized for large datasets
+
+3. **Maintenance**
+   - Modular design for easy updates
+   - Clear error messages
+   - Documented validation rules
