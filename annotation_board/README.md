@@ -1,4 +1,8 @@
 # EVA Project Documentation
+### Code 
+- [Annotation_Board & Annotation_Board_Server](https://github.com/talking-objects/annotation_board)
+- [EVA](https://github.com/talking-objects/archive/tree/main/frontend/frontend-nextjs)
+
 # Table of Contents
 #### 1. Frontend
 - [Annotation Board](#annotation-board)
@@ -578,46 +582,9 @@ SESSION_COOKIE_HTTPONLY = True
 ```
 
 
-### Django Dockerfile
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# Install system dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install Poetry
-RUN pip install poetry
-
-# Configure Poetry to not create virtual environments inside container
-RUN poetry config virtualenvs.create false
-
-# Copy dependency files
-COPY pyproject.toml poetry.lock ./
-
-# Install production dependencies only (using --only main instead of --no-dev)
-RUN poetry install --no-root --only main
-
-# Install whitenoise
-RUN pip install whitenoise
-
-# Create static files directory
-RUN mkdir -p staticfiles
-
-# Copy project files
-COPY . .
-
-# Collect static files
-RUN python manage.py collectstatic 
-
-# Run gunicorn
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
-```
 
 
 ### Hetzner
 - Cloud server hosting platform
+- Firewall
+- Backup
