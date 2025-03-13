@@ -16,6 +16,7 @@ The Annotation Board admin interface provides administrative capabilities for th
 
 ### Login Admin
 - Access the admin interface at `/admin` endpoint
+- [Admin](https://admin.talkingobjectsarchive.org/admin/)
 
 ### Account Creation
 - Create an account on the annotation board website. [Annotation Board Docs](./annotation.md)
@@ -30,6 +31,8 @@ The Annotation Board admin interface provides administrative capabilities for th
 - Manage video metadata
 - You can find the videos that you created on the annotation board website
 
+![Admin Video](../images/eva6.webp)
+![Admin Video](../images/eva7.webp)
 
 ### My Annotation Management
 - View annotation list
@@ -40,7 +43,10 @@ The Annotation Board admin interface provides administrative capabilities for th
   - References
   - Data
   - Tags
+  - Narrations
 - Edit/Delete annotations
+
+![Admin Video](../images/eva8.webp)
 
 ### Clip Management(Only Superuser)
 - View clip list
@@ -53,7 +59,8 @@ The Annotation Board admin interface provides administrative capabilities for th
 - Edit user information
 
 
-## Update Annotations
+## Update Annotations (Deprecated)
+> ⚠️ This feature is no longer supported and will be removed in future versions.
 
 ### Reference
 - start: number(Float type)
