@@ -20,64 +20,62 @@
    - [Common Issues](#common-issues)
 
 ## Getting Started
+[link](https://board.talkingobjectsarchive.org)
 
-### Account Setup
+![Annotation Board Log In](../images/eva.webp)
+
+## Account Setup
 - Create an account on the annotation board website
 - A secret key is required for account creation
 - Contact the TalkingObject Team to obtain the secret key
 
-### Login
+![Annotation Board Sign Up](../images/eva1.webp)
+
+## Login
 - Visit the annotation board website
 - Enter your username and password
 - Click the login button to access your account
 
-### Accessing the Board
+## Accessing the Board & Meta Data of a Video
 - After logging in, you'll see the main dashboard
 - The dashboard displays your available videos
-- Click on a video to start annotating
+- Write the meta data of video you want to work
 
-## Annotation Types
+#### __Meta data__
+- Pandora Videos: List of available videos in your dashboard for annotation
+- Time Gaps: Divides the video into time segments, allowing users to create annotation boards for each specific time period
+- Title: Name or title of the video
+- Contributors: People who participated in the video production
+- Author: Main creator or director of the video
+- Place: Location where the video was recorded
+- Languages: Available language options for the video
+- Source: Original source or provider of the video content
+- Country: Country of origin or production
+- Genre: Category or type of video content
+- Description: Brief summary or overview of the video content
 
-### Categories
-- Define the main category of the video segment
-- Select from predefined category options
-
-### Places
-- Mark specific locations in the video
-- Add location details and descriptions
-- Link to geographical data if available
-
-### Events
-- Identify and label specific events
-- Set event start and end times
-- Add event descriptions and context
-
-### References
-- Link to external resources
-- Add citations and sources
-- Include relevant documentation
-
-### Data
-- Input numerical or textual data
-- Add measurements and statistics
-- Include time-series information
-
-### Tags
-- Add custom labels for easy categorization
-
-## Workflow
-
-### Creating Annotations
-1. Select a video from your dashboard
-2. Navigate to the desired timestamp
-3. Choose the annotation type
-4. Upload your annotation
-
-## Tips & Best Practices
-
-### Time Gaps
-- When selecting a video from the dashboard, the time gap shown represents the annotation duration
+![Annotation Board Dashboard](../images/eva2.webp)
 
 
-### Common Issues
-- Browser compatibility: Use recommended browsers (Chrome, Firefox)
+## Creating Your Annotation Board
+- Click "+" button to add a new annotation
+- Select a Layer for your annotation type
+- Write text content for the selected layer
+
+![Creating Annotation Board](../images/eva3.webp)
+
+## Jump To Specific Time
+- Click the "Jump to" button in the timeline
+- Video will start playing from the selected timestamp
+
+![Timeline Navigation](../images/eva4.webp)
+
+- Alternatively, click the "Jump to" button in the video player
+- This will take you to the annotation board for the current timestamp
+
+![Video Player Navigation](../images/eva5.webp)
+
+## Uploading Annotations
+- Click the "Upload" button to save and share your annotations
+
+![Upload Annotations](../images/eva2.webp)
