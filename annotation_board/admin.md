@@ -24,6 +24,14 @@ The Annotation Board admin interface provides administrative capabilities for th
 - Contact the TalkingObject Team to obtain the secret key
 
 
+### Key Management
+- TOA_KEY: Generate and manage registration keys for Create an account on the Annotation Board website 
+- Create and distribute secret keys required for new user registration
+- Monitor key usage and validity
+
+![Admin Video](../images/eva9.webp)
+
+
 ### My Video Management
 - View video list
 - Edit video information
