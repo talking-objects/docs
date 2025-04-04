@@ -59,8 +59,8 @@ The Annotation Board admin interface provides administrative capabilities for th
 - Edit user information
 
 
-## Update Annotations (Deprecated)
-> ⚠️ This feature is no longer supported and will be removed in future versions.
+## Update Annotations
+
 
 ### Reference
 - start: number(Float type)
@@ -127,30 +127,25 @@ The Annotation Board admin interface provides administrative capabilities for th
 ```js
 // Category data list
 [
-    {
-       slug: "identity",
-       value: "Identity",
-       color: "#9E21E8",
-    },
-    {
-       slug: "knowledge",
-       value: "Knowledge",
-       color: "#8BA5F8",
-    },
-    {
-       slug: "artistic_reflection",
-       value: "Artistic Reflections",
-       color: "#691220",
-    },
-    {
-       slug: "restitution",
-       value: "Restitution",
-       color: "#EC6735",
-    },
-    {
-       slug: "memory",
-       value: "Memory and The Imaginary",
-       color: "#F1A73D",
-    },
- ]
+   {
+       "slug": "identity",
+       "color": "#9E21E8",
+   },
+   {
+       "slug": "knowledge",
+       "color": "#8BA5F8",
+   },
+   {
+       "slug": "artistic_reflection",
+       "color": "#691220",
+   },
+   {
+       "slug": "restitution",
+       "color": "#EC6735",
+   },
+   {
+       "slug": "memory",
+       "color": "#F1A73D",
+   },
+]
 ```
