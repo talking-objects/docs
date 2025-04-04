@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
+   - [Key Management](#key-management)
    - [Video Management](#video-management)
    - [Annotation Management](#annotation-management)
    - [Clip Management](#clip-management)
